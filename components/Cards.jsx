@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import styled from '../styles/Cards.module.css';
 import { useRouter } from 'next/router';
 
@@ -13,7 +12,7 @@ export default function Cards({ pokemon }) {
                 alt="Imagem do Pokémon" />
             </div>
             <h4 className={styled.name}>{ pokemon.name }</h4>
-            <button onClick={() => router.push(`/pokemon/${pokemon.id}`)}>Ver mais</button>
+            <button className={styled.button} onClick={() => router.push(`/pokemon/${pokemon.id}`)}>Ver mais</button>
         </article>
     )
 }

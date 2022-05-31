@@ -1,6 +1,8 @@
 import { instance } from "../../services"; 
 import { useRouter } from "next/router";
 
+import styled from '../../styles/Pokemon.module.css';
+
 export default function Pokemon({ pokemon }) {
 
     const { isFallback } = useRouter();
@@ -9,9 +11,27 @@ export default function Pokemon({ pokemon }) {
         return <p>Carregando</p>
     }
 
+    const abilitiesPokemon = pokemon.abilities.map(item => item.ability.name);
+
     return (
-        <article>
-            <h1>{ pokemon.name }</h1>
+        <article className={styled.pokemon}>
+            <img src={`https://cdn.traction.one/pokedex/pokemon/${pokemon.id}.png`} alt='Pokemon' />
+
+            <h3>{ pokemon.name }</h3>
+
+            <div className={styled.abilities}>
+                {
+                    abilitiesPokemon.map(item => (
+                        <p>{ item }</p>
+                    ))
+                }
+            </div>
+
+            <div className={styled.heightWeight}>
+                <p><strong>Altura:</strong> { pokemon.height * 10 } cm</p>
+                <p><strong>Peso:</strong> { pokemon.weight / 10 } kg</p>
+            </div>
+
         </article>
     )
 }

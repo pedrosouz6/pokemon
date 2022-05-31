@@ -22,3 +22,12 @@
 .name {
     text-transform: capitalize;
 }
+
+.button {
+    padding: 5px 10px;
+    color: white;
+    border: none;
+    background-color: royalblue;
+    cursor: pointer;
+    border-radius: 5px;
+}
