@@ -1,6 +1,8 @@
 import styled from '../styles/Cards.module.css';
 import { useRouter } from 'next/router';
 
+import Image from 'next/image'
+
 export default function Cards({ pokemon }) {
 
     const router = useRouter();
@@ -8,7 +10,11 @@ export default function Cards({ pokemon }) {
     return (
         <article className={styled.article}>
             <div className={styled.imagePokemon}>
-                <img className={styled.img} src={`https://cdn.traction.one/pokedex/pokemon/${pokemon.id}.png`} 
+                <Image 
+                className={styled.img} 
+                src={`https://cdn.traction.one/pokedex/pokemon/${pokemon.id}.png`} 
+                width='160px'
+                height='180px'
                 alt="Imagem do Pokémon" />
             </div>
             <h4 className={styled.name}>{ pokemon.name }</h4>

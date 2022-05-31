@@ -1,6 +1,8 @@
 import { instance } from "../../services"; 
 import { useRouter } from "next/router";
 
+import Image from "next/image";
+
 import styled from '../../styles/Pokemon.module.css';
 
 export default function Pokemon({ pokemon }) {
@@ -15,14 +17,18 @@ export default function Pokemon({ pokemon }) {
 
     return (
         <article className={styled.pokemon}>
-            <img src={`https://cdn.traction.one/pokedex/pokemon/${pokemon.id}.png`} alt='Pokemon' />
+            <Image 
+            src={`https://cdn.traction.one/pokedex/pokemon/${pokemon.id}.png`}
+            width='200px'
+            height='250px'
+            alt='Pokemon' />
 
             <h3>{ pokemon.name }</h3>
 
             <div className={styled.abilities}>
                 {
-                    abilitiesPokemon.map(item => (
-                        <p>{ item }</p>
+                    abilitiesPokemon.map((item, key) => (
+                        <p key={key}>{ item }</p>
                     ))
                 }
             </div>
